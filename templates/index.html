@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Image Runner | AI Image-to-Image</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+</head>
+<body>
+  <div class="noise"></div>
+  <main class="app-shell">
+    <header class="topbar reveal-1">
+      <div>
+        <p class="kicker">GROK-LIKE VISUAL LAB</p>
+        <h1>Image Runner</h1>
+      </div>
+      <span class="badge">IMG2IMG ONLY</span>
+    </header>
+
+    <section class="panel reveal-2">
+      <div class="grid-2">
+        <label class="field">
+          <span>Model</span>
+          <select id="modelSelect">
+            <option value="xai/grok-imagine-image">xAI</option>
+          </select>
+        </label>
+
+        <label class="field">
+          <span id="apiKeyLabel">xAI API Key</span>
+          <input id="apiKey" type="password" placeholder="sk-..." autocomplete="off" />
+          <div class="inline-actions">
+            <button type="button" id="saveApiKeyBtn" class="ghost-btn">Save Key In Browser</button>
+          </div>
+        </label>
+      </div>
+
+      <label class="field">
+        <span>Model ID</span>
+        <select id="modelIdSelect">
+          <option value="grok-imagine-image" selected>grok-imagine-image</option>
+          <option value="grok-imagine-image-pro">grok-imagine-image-pro</option>
+        </select>
+      </label>
+
+      <label class="field">
+        <span>Prompt</span>
+        <textarea id="prompt" rows="4" placeholder="Describe how to transform the image..."></textarea>
+      </label>
+
+      <details class="collapse-field">
+        <summary>Negative Prompt (optional)</summary>
+        <label class="field compact-field">
+          <textarea id="negativePrompt" rows="3" placeholder="low quality, blurry, artifacts..."></textarea>
+        </label>
+      </details>
+
+      <label class="upload reveal-3" id="uploadZone" for="imageInput">
+        <input id="imageInput" type="file" accept="image/*" hidden />
+        <span>Drop image or click to upload</span>
+      </label>
+
+      <div class="preview-grid">
+        <figure>
+          <figcaption>Input</figcaption>
+          <img id="inputPreview" alt="input preview" src="{{ url_for('static', filename='default-preview.svg') }}" />
+        </figure>
+        <figure>
+          <figcaption>Output</figcaption>
+          <img id="outputPreview" alt="output preview" src="{{ url_for('static', filename='default-preview.svg') }}" />
+        </figure>
+      </div>
+
+      <div class="actions">
+        <button id="runBtn">Run Transformation</button>
+        <button id="downloadBtn" type="button" class="ghost-btn" disabled>Download PNG</button>
+        <p id="status">Ready.</p>
+      </div>
+    </section>
+  </main>
+
+  <div class="image-modal" id="imageModal" hidden>
+    <button type="button" class="image-modal-close" id="imageModalClose" aria-label="Close image preview">Close</button>
+    <img id="imageModalPreview" alt="enlarged preview" />
+  </div>
+
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>

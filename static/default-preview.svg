@@ -1,0 +1,28 @@
+<svg width="1024" height="768" viewBox="0 0 1024 768" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#07101f"/>
+      <stop offset="100%" stop-color="#0b1c33"/>
+    </linearGradient>
+    <linearGradient id="line" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#66a8ff"/>
+      <stop offset="100%" stop-color="#4ff8d2"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1024" height="768" fill="url(#bg)"/>
+  <g opacity="0.22" stroke="#88a7d8" stroke-width="1">
+    <path d="M0 96H1024"/><path d="M0 192H1024"/><path d="M0 288H1024"/><path d="M0 384H1024"/>
+    <path d="M0 480H1024"/><path d="M0 576H1024"/><path d="M0 672H1024"/>
+    <path d="M128 0V768"/><path d="M256 0V768"/><path d="M384 0V768"/><path d="M512 0V768"/>
+    <path d="M640 0V768"/><path d="M768 0V768"/><path d="M896 0V768"/>
+  </g>
+
+  <rect x="176" y="164" width="672" height="440" rx="20" fill="none" stroke="url(#line)" stroke-width="3"/>
+  <circle cx="420" cy="318" r="34" fill="none" stroke="#66a8ff" stroke-width="3"/>
+  <path d="M276 498L408 374L502 470L594 410L748 562H276Z" fill="none" stroke="#4ff8d2" stroke-width="3"/>
+
+  <text x="512" y="628" text-anchor="middle" fill="#d5e6ff" font-family="monospace" font-size="28" letter-spacing="2">
+    IMAGE IS NOT AVAILABLE
+  </text>
+</svg>
